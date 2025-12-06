@@ -34,42 +34,42 @@ To demonstrate, we'll consider a simple differential expression (DE) analysis ba
 ```{r, echo=FALSE, comment=""}
 template <- "# Data loading
 
----{r}
+~~~{r}
 :BEGIN data
 :END
----
+~~~
 
 # Preprocessing
 
----{r}
+~~~{r}
 y <- SummarizedExperiment::assay(se)
 d <- edgeR::DGEList(y)
 d <- d[edgeR::filterByExpr(d),]
 d <- edgeR::normLibSizes(d)
 d$samples
----
+~~~
 
 # Variance modelling
 
----{r}
+~~~{r}
 design <- model.matrix(<%= FORMULA %>, colData(se))
 v <- limma::voom(d, design, plot=TRUE)
 fit <- limma::lmFit(v, design)
 fit <- limma::eBayes(fit, robust=<%= ROBUST %>)
----
+~~~
 
 # Testing for differences
 
----{r}
+~~~{r}
 res <- limma::topTable(fit, n=Inf)
----
+~~~
 
 Saving the result:
 
----{r saveme}
+~~~{r saveme}
 write.csv(res, 'de.csv')
----"
-template <- gsub("---", "```", template)
+~~~"
+template <- gsub("~~~", "```", template)
 cat(template)
 ```
 
