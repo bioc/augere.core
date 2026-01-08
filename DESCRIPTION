@@ -1,12 +1,13 @@
 Package: augere.core
-Version: 0.99.0
-Date: 2025-10-16
+Version: 0.99.1
+Date: 2026-01-08
 Title: Core Utilities for Automatically Generated Reports
 Description:
     Provides utility functions for automatic generation of reports in the augere framework.
-    This mostly involves parsing and dynamically editing Rmarkdown files,
-    controlling inputs into the augere pipelines.
-Authors@R: person("Aaron", "Lun", role=c("cre", "aut"), email="infinite.monkeys.with.keyboards@gmail.com")
+    This mostly involves parsing and dynamically editing Rmarkdown files, controlling inputs into the augere pipelines.
+    Each pipeline generates and executes a self-contained Rmarkdown file for a common bioinformatics analysis;
+    see downstream packages like augere.de and augere.screen for examples of some analysis pipelines.
+Authors@R: person("Aaron", "Lun", role=c("cre", "aut"), email="infinite.monkeys.with.keyboards@gmail.com", comment=c(ORCID="0000-0002-3564-4813"))
 License: MIT + file LICENSE
 Imports:
     utils,
@@ -29,3 +30,5 @@ Encoding: UTF-8
 biocViews:
     WorkflowManagement,
     ReportWriting
+URL: https://github.com/augere-bioinfo/augere.core
+BugReports: https://github.com/augere-bioinfo/augere.core/issues

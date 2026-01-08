@@ -20,12 +20,20 @@ self <- Biocpkg("augere.core")
 
 # Introduction
 
-`r self` provides utilities to implement pipelines for automatic generation of analysis reports.
+`r self` provides utilities to implement pipelines for automatic generation of analysis reports within the [**augere** framework](https://github.com/augere-bioinfo).
 Each pipeline function performs a standard bioinformatics analysis while generating a fully-parametrized Rmarkdown report that contains all of the relevant commands.
 The generated report documents the analysis for greater transparency and reproducibility, and can be easily modified to fine-tune the analysis with custom steps or parameters.
+(Check out downstream packages like `r Biocpkg("augere.de")` and `r Biocpkg("augere.screen")` for examples of such pipelines.)
 This vignette aims to provide some guidance on how to write such pipeline functions.
 
 # Quick start
+
+To install this package, follow the usual [instructions for Bioconductor](https://bioconductor.org/install):
+
+```r
+install.packages("BiocManager") # if not already available
+BiocManager::install("augere.core")
+```
 
 An **augere** pipeline is typically comprised of an Rmarkdown template that describes most of the analysis,
 and a user-visible function that realizes the template into a fully-parametrized report. 
