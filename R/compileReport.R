@@ -7,7 +7,7 @@
 #' @param skip.chunks Character vector of the names of Rmarkdown chunks to skip.
 #' @param contents List or character vector containing the contents of \code{file}.
 #' Note that \code{file} must still be supplied, see Details.
-#' @param suppress.plots Boolean indicating whether to suppress plots.
+#' @param suppress.plots Boolean indicating whether to suppress the generation of plots.
 #' If \code{TRUE}, all plots are redirected to the null device.
 #'
 #' @return Code chunks from \code{file} are compiled, typically populating \code{env} with new variables.
@@ -52,7 +52,7 @@ compileReport <- function(
     env,
     skip.chunks = NULL,
     contents = NULL,
-    suppress.plots = interactive()
+    suppress.plots = FALSE
 ) {
     if (is.null(contents)) {
         lines <- readLines(file)

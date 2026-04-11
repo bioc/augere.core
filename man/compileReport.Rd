@@ -9,7 +9,7 @@ compileReport(
   env,
   skip.chunks = NULL,
   contents = NULL,
-  suppress.plots = interactive()
+  suppress.plots = FALSE
 )
 }
 \arguments{
@@ -22,7 +22,7 @@ compileReport(
 \item{contents}{List or character vector containing the contents of \code{file}.
 Note that \code{file} must still be supplied, see Details.}
 
-\item{suppress.plots}{Boolean indicating whether to suppress plots.
+\item{suppress.plots}{Boolean indicating whether to suppress the generation of plots.
 If \code{TRUE}, all plots are redirected to the null device.}
 }
 \value{
