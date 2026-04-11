@@ -1,6 +1,6 @@
 Package: augere.core
-Version: 0.99.1
-Date: 2026-01-08
+Version: 0.99.2
+Date: 2026-04-11
 Title: Core Utilities for Automatically Generated Reports
 Description:
     Provides utility functions for automatic generation of reports in the augere framework.

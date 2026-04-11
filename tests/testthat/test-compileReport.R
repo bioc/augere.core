@@ -71,7 +71,7 @@ res <- 2L
     expect_identical(env$res, 1L)
 })
 
-test_that("quickCompile uses cached inputs correctly", {
+test_that("compileReport uses cached inputs correctly", {
     tmp <- tempfile()
     dir.create(tmp)
 
