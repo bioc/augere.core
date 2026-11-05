@@ -1,6 +1,6 @@
 Package: augere.core
-Version: 0.99.3
-Date: 2026-04-11
+Version: 0.99.4
+Date: 2026-11-05
 Title: Core Utilities for Automatically Generated Reports
 Description:
     Provides utility functions for automatic generation of reports in the augere framework.
@@ -25,10 +25,10 @@ Suggests:
     jsonlite,
     alabaster.base
 VignetteBuilder: knitr    
-RoxygenNote: 7.3.3
 Encoding: UTF-8
 biocViews:
     WorkflowManagement,
     ReportWriting
 URL: https://github.com/augere-bioinfo/augere.core
 BugReports: https://github.com/augere-bioinfo/augere.core/issues
+Config/roxygen2/version: 8.1.1

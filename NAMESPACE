@@ -12,8 +12,12 @@ export(resetInputCache)
 export(saveResult)
 export(wrapInput)
 export(writeRmd)
-importFrom(grDevices,dev.list)
-importFrom(grDevices,dev.off)
-importFrom(grDevices,pdf)
-importFrom(utils,head)
-importFrom(utils,tail)
+importFrom(grDevices,
+  dev.list,
+  dev.off,
+  pdf
+)
+importFrom(utils,
+  head,
+  tail
+)

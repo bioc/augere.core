@@ -5,8 +5,12 @@
 #' @param file String containing a path to an Rmarkdown file.
 #' @param env Environment in which the R code is to be evaluated.
 #' @param skip.chunks Character vector of the names of Rmarkdown chunks to skip.
-#' @param contents List or character vector containing the contents of \code{file}.
-#' Note that \code{file} must still be supplied, see Details.
+#' @param contents Character vector representing the contents of \code{file}.
+#' This may also be a list of character vectors with any amount of nesting, e.g., as returned by \code{\link{parseRmdTemplate}}.
+#' Each string may contain internal newlines.
+#'
+#' If \code{NULL}, the contents of \code{file} are read from the \code{file} path.
+#' Note that \code{file} must still be supplied when \code{contents} is provided, see Details.
 #' @param suppress.plots Boolean indicating whether to suppress the generation of plots.
 #' If \code{TRUE}, all plots are redirected to the null device.
 #'

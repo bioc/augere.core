@@ -19,8 +19,12 @@ compileReport(
 
 \item{skip.chunks}{Character vector of the names of Rmarkdown chunks to skip.}
 
-\item{contents}{List or character vector containing the contents of \code{file}.
-Note that \code{file} must still be supplied, see Details.}
+\item{contents}{Character vector representing the contents of \code{file}.
+This may also be a list of character vectors with any amount of nesting, e.g., as returned by \code{\link{parseRmdTemplate}}.
+Each string may contain internal newlines.
+
+If \code{NULL}, the contents of \code{file} are read from the \code{file} path.
+Note that \code{file} must still be supplied when \code{contents} is provided, see Details.}
 
 \item{suppress.plots}{Boolean indicating whether to suppress the generation of plots.
 If \code{TRUE}, all plots are redirected to the null device.}
