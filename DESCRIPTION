@@ -1,6 +1,6 @@
 Package: augere.core
-Version: 0.99.4
-Date: 2026-11-05
+Version: 0.99.5
+Date: 2026-11-06
 Title: Core Utilities for Automatically Generated Reports
 Description:
     Provides utility functions for automatic generation of reports in the augere framework.
@@ -10,7 +10,6 @@ Description:
 Authors@R: person("Aaron", "Lun", role=c("cre", "aut"), email="infinite.monkeys.with.keyboards@gmail.com", comment=c(ORCID="0000-0002-3564-4813"))
 License: MIT + file LICENSE
 Imports:
-    utils,
     grDevices
 Suggests:
     testthat,
