@@ -4,16 +4,24 @@
 \alias{writeRmd}
 \title{Write Rmarkdown file}
 \usage{
-writeRmd(contents, file, append = FALSE, clean.empty = TRUE)
+writeRmd(
+  contents,
+  file,
+  append = FALSE,
+  clean.empty = TRUE,
+  trailing.empty = FALSE
+)
 }
 \arguments{
-\item{contents}{A character vector of a (nested) list of such vectors.}
+\item{contents}{A character vector or a (nested) list of such vectors.}
 
 \item{file}{String containing a file path or a connection object to an opened file.}
 
 \item{append}{Logical scalar indicating whether to append \code{contents} to \code{file}.}
 
-\item{clean.empty}{Logical scalar indicating whether extraneous empty lines should be removed.}
+\item{clean.empty}{Boolean indicating whether repeated empty lines should be collapsed into a single empty line.}
+
+\item{trailing.empty}{Boolean indicating whether an empty line should be added to the end of a non-empty \code{contents}, if one is not already present.}
 }
 \value{
 \code{contents} is written to \code{file} and \code{NULL} is invisibly returned.
@@ -23,8 +31,12 @@ Write Rmarkdown-formatted strings to file.
 }
 \details{
 Each element of each character vector in \code{contents} is placed on a new line in the output.
+
 Empty strings are respected and manifest as empty lines.
-If \code{clean.empty=TRUE}, repeated empty lines are removed.
+If \code{clean.empty=TRUE}, multiple empty lines are replaced by a single empty line to avoid excessive empty space in the file.
+
+Setting \code{trailing.empty=TRUE} is recommended if further content is to be added to \code{file}.
+This avoids unexpected formatting of appended text, e.g., Markdown section headers are not respected if they are preceded by a non-empty line.
 }
 \examples{
 contents <- list(
