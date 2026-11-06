@@ -13,6 +13,8 @@
 #' Note that \code{file} must still be supplied when \code{contents} is provided, see Details.
 #' @param suppress.plots Boolean indicating whether to suppress the generation of plots.
 #' If \code{TRUE}, all plots are redirected to the null device.
+#' @param suppress.output Boolean indicating whether to suppress R output.
+#' If \code{TRUE}, calls to \code{\link{cat}} within \code{file} are not printed to screen.
 #'
 #' @return Code chunks from \code{file} are compiled, typically populating \code{env} with new variables.
 #' \code{NULL} is invisibly returned.
@@ -56,7 +58,8 @@ compileReport <- function(
     env,
     skip.chunks = NULL,
     contents = NULL,
-    suppress.plots = FALSE
+    suppress.plots = FALSE,
+    suppress.output = FALSE 
 ) {
     if (is.null(contents)) {
         lines <- readLines(file)
@@ -86,7 +89,12 @@ compileReport <- function(
 
     if (suppress.plots) {
         pdf(file=NULL)
-        on.exit(dev.off(), add=TRUE)
+        on.exit(dev.off(), after=FALSE, add=TRUE)
+    }
+
+    if (suppress.output) {
+        sink(nullfile(), type="output")
+        on.exit(sink(NULL), after=FALSE, add=TRUE)
     }
 
     # Compile the report in the file's working directory, so that any relative file paths are respected.

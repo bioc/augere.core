@@ -9,7 +9,8 @@ compileReport(
   env,
   skip.chunks = NULL,
   contents = NULL,
-  suppress.plots = FALSE
+  suppress.plots = FALSE,
+  suppress.output = FALSE
 )
 }
 \arguments{
@@ -28,6 +29,9 @@ Note that \code{file} must still be supplied when \code{contents} is provided, s
 
 \item{suppress.plots}{Boolean indicating whether to suppress the generation of plots.
 If \code{TRUE}, all plots are redirected to the null device.}
+
+\item{suppress.output}{Boolean indicating whether to suppress R output.
+If \code{TRUE}, calls to \code{\link{cat}} within \code{file} are not printed to screen.}
 }
 \value{
 Code chunks from \code{file} are compiled, typically populating \code{env} with new variables.

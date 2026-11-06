@@ -100,3 +100,25 @@ test_that("compileReport uses cached inputs correctly", {
     expect_identical(env$charlie, df3) # skips the incorrect code 
     expect_identical(nrow(env$delta), 5L) # runs the code to generate the object
 })
+
+test_that("compileReport suppresses the ouput", {
+    tmp <- tempfile()
+    dir.create(tmp)
+
+    rmd.path <- file.path(tmp, "stuff.Rmd")
+    write("```{r}
+for (x in 1:10) {
+    cat(x)
+}
+cat(12345)
+```", file=rmd.path)
+
+    # Without suppression.
+    env <- new.env()
+    expect_output(compileReport(rmd.path, env), "1234")
+
+    # With suppression.
+    env <- new.env()
+    expect_output(compileReport(rmd.path, env, suppress.output=TRUE), NA)
+})
+
